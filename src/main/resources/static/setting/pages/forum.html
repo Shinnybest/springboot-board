@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeline Service</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style/style.css">
+    <script src="../js/comments.js"></script>
+</head>
+<body>
+<div class="background-header">
+</div>
+<div class="background-body">
+
+</div>
+<div class="wrap">
+    <div class="header">
+        <h2>항해기록일지</h2>
+        <p>
+            매일의 항해 기록을 남깁니다.
+        </p>
+    </div>
+    <div id="cards-box" class="area-read">
+    </div>
+    <div class="area-write">
+                <textarea class="field" placeholder="글쓴이(유저명)" name="author" id="author" cols="10"
+                          rows="1"></textarea>
+        <textarea class="field" placeholder="동료에게 응원 한마디!" name="contents" id="contents" cols="20"
+                  rows="1"></textarea>
+        <img src="images/send.png" alt="" onclick="writeComments()">
+    </div>
+    <div id="comments-box">
+    </div>
+</div>
+</body>
+
+</html>
