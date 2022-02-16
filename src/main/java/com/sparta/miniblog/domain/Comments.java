@@ -16,7 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 public class Comments extends Timestamped {
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)

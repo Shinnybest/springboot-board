@@ -1,15 +1,15 @@
 package com.sparta.miniblog.controller;
 
-import com.sparta.miniblog.domain.Comments;
 import com.sparta.miniblog.domain.Posts;
 import com.sparta.miniblog.domain.PostsRepository;
-import com.sparta.miniblog.models.PageDataDto;
+import com.sparta.miniblog.models.PostsDataDto;
 import com.sparta.miniblog.models.PostsRequestDto;
 import com.sparta.miniblog.service.PostsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @RestController
@@ -39,11 +39,16 @@ public class PostsRestController {
         return id;
     }
 
+//    @GetMapping("/api/posts/{id}")
+//    public PostsDataDto getComments(@PathVariable Long id) {
+//        Posts posts = postsRepository.findById(id).orElseThrow(NullPointerException::new);
+//        PostsDataDto dataDto = new PostsDataDto(posts);
+//        return dataDto;
+//    }
+
     @GetMapping("/api/posts/{id}")
-    public PageDataDto getComments(@PathVariable Long id) {
-        Posts posts = postsRepository.findById(id).orElseThrow(NullPointerException::new);
-        PageDataDto dataDto = new PageDataDto(posts);
-        return dataDto;
+    public Optional<Posts> getPostandComments(@PathVariable Long id) {
+        return postsService.getPostandComments(id);
     }
 
 }

@@ -1,6 +1,8 @@
 package com.sparta.miniblog.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.sparta.miniblog.models.PostsRequestDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,9 +14,10 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 @Entity
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "id")
 public class Posts extends Timestamped {
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Id @Column(name = "POST_ID")
+    @Id
     private Long id;
 
     @Column(nullable = false)

@@ -2,34 +2,31 @@ package com.sparta.miniblog.controller;
 
 import com.sparta.miniblog.domain.Comments;
 import com.sparta.miniblog.domain.CommentsRepository;
-import com.sparta.miniblog.domain.Posts;
 import com.sparta.miniblog.domain.PostsRepository;
 import com.sparta.miniblog.models.CommentsRequestDto;
 import com.sparta.miniblog.service.CommentsService;
-import com.sparta.miniblog.service.PostsService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RequiredArgsConstructor
 @RestController
 public class CommentsRestController {
-    private final PostsRepository postsRepository;
     private final CommentsRepository commentsRepository;
     private final CommentsService commentsService;
 
-//    @GetMapping("/api/{postsId}/comments")
-//    public List<Comments> getComments(@PathVariable Long postsId) {
-//        return commentsRepository.findByPostsId(postsId);
+//    @GetMapping("/{postsId}")
+//    public String getPostandCommentsPage(Model model) {
+//        model.addAttribute("data", "Spring");
+//        return "test";
 //    }
 
     @PostMapping("/api/comments/{postsId}")
-    public Comments createComments(@PathVariable Long postsId, @RequestBody CommentsRequestDto requestDto) {
+    public void createComments(@PathVariable Long postsId, @RequestBody CommentsRequestDto requestDto) {
         Comments comments = commentsService.getComments(postsId, requestDto);
         commentsRepository.save(comments);
-        return comments;
     }
 
     @PutMapping("/api/comments/{id}")
