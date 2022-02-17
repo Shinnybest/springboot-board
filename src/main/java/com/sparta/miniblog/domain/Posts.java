@@ -30,12 +30,8 @@ public class Posts extends Timestamped {
     private String contents;
 
     @OneToMany(mappedBy = "posts", cascade = {CascadeType.ALL}, orphanRemoval=true)
+    @OrderBy("modifiedAt DESC")
     private List<Comments> comments = new ArrayList<Comments>();
-//    private List<String> comments = new ArrayList<String>();
-
-//    public void setComments(comments){
-//        this.comments = List<Comments> comments;
-//    }
 
     public Posts(PostsRequestDto requestDto) {
         this.title = requestDto.getTitle();
@@ -52,10 +48,6 @@ public class Posts extends Timestamped {
     public void addComments(Comments comments) {
         comments.setPosts(this);
     }
-
-//    public List<Comments> addthisComment(Comments comments) {
-//        this.comments =
-//    }
 
 
 }

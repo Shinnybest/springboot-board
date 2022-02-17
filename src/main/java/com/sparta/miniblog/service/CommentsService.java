@@ -5,15 +5,10 @@ import com.sparta.miniblog.domain.CommentsRepository;
 import com.sparta.miniblog.domain.Posts;
 import com.sparta.miniblog.domain.PostsRepository;
 import com.sparta.miniblog.models.CommentsRequestDto;
-import com.sparta.miniblog.models.PostsRequestDto;
-import lombok.Builder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.Collections;
-import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.Optional;
 
 
@@ -23,10 +18,6 @@ public class CommentsService {
     private final CommentsRepository commentsRepository;
     private final PostsRepository postsRepository;
 
-//    public Long setPostID(Posts posts) {
-//        Comments comments = new Comments();
-//        comments.setPosts(posts);
-//    }
     @Transactional
     public Comments getComments(Long postId, CommentsRequestDto requestDto) {
         Optional<Posts> byId = Optional.ofNullable(postsRepository.findById(postId))

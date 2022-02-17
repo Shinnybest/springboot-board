@@ -38,3 +38,5 @@ out/
 
 myselectdb.lock.db
 myselectdb.mv.db
+
+application.properties

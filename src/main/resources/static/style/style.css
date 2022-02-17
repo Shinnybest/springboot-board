@@ -105,14 +105,16 @@ textarea.field::placeholder {
     color: #868e96;
 }
 
-.card {
+.card,
+.comment {
     width: 538px;
     border-radius: 5px;
     background-color: #ffffff;
     margin-bottom: 12px;
 }
 
-.card .metadata {
+.card .metadata,
+.comment .metadata {
     position: relative;
     display: flex;
     font-family: 'Spoqa Han Sans';
@@ -128,25 +130,33 @@ textarea.field::placeholder {
     padding: 10px 23px;
 }
 
-.card .metadata .date {
+.card .metadata .date,
+.comment .metadata .date
+{
 
 }
 
-.card .metadata .username {
+.card .metadata .username,
+.comment .metadata .username{
     margin-left: 20px;
 }
 
-.contents {
+.contents,
+.comment-contents {
     padding: 0px 23px;
     word-wrap: break-word;
     word-break: break-all;
 }
 
-.contents div.edit {
+.contents div.edit,
+.comment-contents div.edit
+{
     display: none;
 }
 
-.contents textarea.te-edit {
+.contents textarea.te-edit,
+.comment-contents textarea.te-edit
+{
     border-right: none;
     border-top: none;
     border-left: none;
@@ -189,6 +199,8 @@ textarea.field::placeholder {
     height: 18px;
 }
 
-#cards-box {
+#cards-box,
+#comments-box,
+#write-box {
     margin-top: 12px;
 }

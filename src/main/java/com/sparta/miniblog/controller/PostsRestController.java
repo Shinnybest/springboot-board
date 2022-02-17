@@ -2,7 +2,6 @@ package com.sparta.miniblog.controller;
 
 import com.sparta.miniblog.domain.Posts;
 import com.sparta.miniblog.domain.PostsRepository;
-import com.sparta.miniblog.models.PostsDataDto;
 import com.sparta.miniblog.models.PostsRequestDto;
 import com.sparta.miniblog.service.PostsService;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +18,7 @@ public class PostsRestController {
     private final PostsService postsService;
 
     @GetMapping("/api/posts")
-    public List<Posts> getPosts() { return postsRepository.findAll(); }
+    public List<Posts> getPosts() { return postsRepository.findAllByOrderByModifiedAtDesc(); }
 
     @PostMapping("/api/posts")
     public Posts createPosts(@RequestBody PostsRequestDto requestDto) {
@@ -38,13 +37,6 @@ public class PostsRestController {
         postsRepository.deleteById(id);
         return id;
     }
-
-//    @GetMapping("/api/posts/{id}")
-//    public PostsDataDto getComments(@PathVariable Long id) {
-//        Posts posts = postsRepository.findById(id).orElseThrow(NullPointerException::new);
-//        PostsDataDto dataDto = new PostsDataDto(posts);
-//        return dataDto;
-//    }
 
     @GetMapping("/api/posts/{id}")
     public Optional<Posts> getPostandComments(@PathVariable Long id) {

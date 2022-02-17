@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 | 항해기록일지</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/style/style.css}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<p class="getidxnum" th:id="${data}"></p>
+<div class="background-header">
+</div>
+<div class="background-body">
+</div>
+<div class="wrap">
+    <div class="header">
+        <h2>항해기록일지</h2>
+        <p>
+            매일의 항해 기록을 남깁니다.
+        </p>
+    </div>
+    <div id="cards-box" class="area-read">
+    </div>
+    <div id="write-box">
+    </div>
+    <div id="comments-box">
+    </div>
+</div>
+<script type="text/javascript" th:src="@{/js/comments.js}"></script>
+</body>
+</html>
