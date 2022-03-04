@@ -14,7 +14,6 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 @Entity
-@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "id")
 public class Posts extends Timestamped {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
@@ -31,7 +30,7 @@ public class Posts extends Timestamped {
 
     @OneToMany(mappedBy = "posts", cascade = {CascadeType.ALL}, orphanRemoval=true)
     @OrderBy("modifiedAt DESC")
-    private List<Comments> comments = new ArrayList<Comments>();
+    private List<Comments> comments = new ArrayList<>();
 
     public Posts(PostsRequestDto requestDto) {
         this.title = requestDto.getTitle();

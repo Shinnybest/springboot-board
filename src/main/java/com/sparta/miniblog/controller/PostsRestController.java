@@ -2,13 +2,12 @@ package com.sparta.miniblog.controller;
 
 import com.sparta.miniblog.domain.Posts;
 import com.sparta.miniblog.domain.PostsRepository;
+import com.sparta.miniblog.models.PostResponseDto;
 import com.sparta.miniblog.models.PostsRequestDto;
 import com.sparta.miniblog.service.PostsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-import java.util.Optional;
 
 @RequiredArgsConstructor
 @RestController
@@ -39,7 +38,7 @@ public class PostsRestController {
     }
 
     @GetMapping("/api/posts/{id}")
-    public Optional<Posts> getPostandComments(@PathVariable Long id) {
+    public PostResponseDto getPostandComments(@PathVariable Long id) {
         return postsService.getPostandComments(id);
     }
 
